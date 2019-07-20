@@ -1,0 +1,16 @@
+{
+    "card":{
+        "title":"",
+        "desc":"",
+        "status":"",
+        "type":"",
+        "date_created":"",
+        "date_modified":""
+    },
+    "scrum_disk":{
+        "product_backlog":["card"],
+        "monster_slot":["card","card","card","card","card"],
+        "spell_slot":["card","card","card","card","card"],
+        "graveyard":["card"]
+    }
+}
