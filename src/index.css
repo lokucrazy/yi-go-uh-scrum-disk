@@ -1,0 +1,9 @@
+.slot {
+    float: left;
+    margin: 10px;
+    border: 5px;
+    border-style: solid;
+    border-color: black;
+    height:100%;
+    width: 10%;
+}
