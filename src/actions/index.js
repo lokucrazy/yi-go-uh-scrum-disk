@@ -1,18 +1,32 @@
-export const ADD_CARD = 'ADD_CARD';
-export const REMOVE_CARD = 'REMOVE_CARD';
+export const ADD_TO_DECK = 'ADD_TO_DECK';
+export const SEND_TO_GRAVEYARD = 'SEND_TO_GRAVEYARD';
+export const PLAY_CARD = 'PLAY_CARD';
+export const MOVE_CARD = 'MOVE_CARD';
 
-export function addCard(slot, card) {
+export function addCardToDeck(card) {
     return {
-        type: ADD_CARD,
-        slot,
+        type: ADD_TO_DECK,
         card
     }
 }
 
-export function removeCard(slot, card) {
+export function sendCardToGraveyard(slot) {
     return {
-        type: REMOVE_CARD,
+        type: SEND_TO_GRAVEYARD,
+        slot
+    }
+}
+
+export function playCard() {
+    return {
+        type: PLAY_CARD
+    }
+}
+
+export function moveCard(slot, nextSlot) {
+    return {
+        type: MOVE_CARD,
         slot,
-        card
+        nextSlot
     }
 }

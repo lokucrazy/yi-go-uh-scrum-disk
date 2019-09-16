@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 /*
  * SplitChunksPlugin is enabled by default and replaced
@@ -25,7 +26,12 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist')
 	},
 
-	plugins: [new webpack.ProgressPlugin()],
+	plugins: [
+		new webpack.ProgressPlugin(),
+		new HtmlWebpackPlugin({
+			template: "./src/index.html"
+		})
+	],
 
 	module: {
 		rules: [
@@ -67,6 +73,7 @@ module.exports = {
 	},
 
 	devServer: {
+		contentBase: path.resolve(__dirname, 'dist'),
 		open: true
 	}
 };
