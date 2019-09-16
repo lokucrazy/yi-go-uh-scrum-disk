@@ -21,6 +21,7 @@
   "homepage": "https://github.com/lokucrazy/yi-go-uh-scrum-disk#readme",
   "dependencies": {
     "ajv": "^6.10.2",
+    "reduce-reducers": "^1.0.4",
     "redux": "^4.0.4",
     "serve": "^11.1.0"
   },

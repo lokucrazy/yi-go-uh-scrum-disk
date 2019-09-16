@@ -1,4 +1,4 @@
-class Card {
+export class Card {
     constructor(title, desc) {
         this.title = title;
         this.desc = desc;
@@ -9,20 +9,18 @@ class Card {
     }
 }
 
-class Slot {
-    constructor(cards, slotId) {
-        this.cards = cards;
+export class Slot {
+    constructor(card, slotId) {
+        this.card = card;
         this.slotId = slotId;
     }
 
-    renderCards() {
-        var cardRender = "";
-        this.cards.map((card) => {
-            cardRender += card.render();
-        })
-    }
-
     render() {
-        return "<div class='slot' id=" + this.slotId + ">" + this.renderCards() + "</div>"
+        console.log(this.slotId, (this.card instanceof Card));
+        return (
+            "<div class='slot' id=" + this.slotId + ">"
+                + this.card !== null ? this.card.render() : "" +
+            "</div>"
+        );
     }
 }
