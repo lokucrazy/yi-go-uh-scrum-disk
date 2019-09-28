@@ -1,4 +1,4 @@
-import { addCardToDeck, sendCardToGraveyard, playCard, moveCard } from './actions';
+import { addCardToDeck, sendCardToGraveyard, drawCard, draw2Cards, moveCard } from './actions';
 import { createStore } from 'redux';
 import scrumDisk from './reducers';
 import { Card } from './models';
@@ -10,8 +10,11 @@ const card2 = new Card("New Card Title 2", "New Card Desc 2");
 
 store.dispatch(addCardToDeck(card1));
 store.dispatch(addCardToDeck(card2));
-store.dispatch(playCard());
-store.dispatch(playCard());
+store.dispatch(drawCard());
+store.dispatch(drawCard());
 store.dispatch(sendCardToGraveyard("monster1", card1));
+store.dispatch(addCardToDeck(card1));
+store.dispatch(addCardToDeck(card2));
+store.dispatch(draw2Cards());
 
 unsubscribe();
