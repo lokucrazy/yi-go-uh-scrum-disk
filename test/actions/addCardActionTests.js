@@ -12,11 +12,17 @@ const testAddCardToDeck = () => {
 const testAddUndefinedCardToDeck = () => {
     const badCard = undefined;
     assert.deepEqual(addCardToDeck(badCard), {});
-}
+};
+
+const testAddNonCardToDeck = () => {
+    const nonCard = "not a card";
+    assert.deepEqual(addCardToDeck(nonCard), {});
+};
 
 const AddCardActionTests = [
     testAddCardToDeck,
-    testAddUndefinedCardToDeck
+    testAddUndefinedCardToDeck,
+    testAddNonCardToDeck
 ];
 
 export default AddCardActionTests;
