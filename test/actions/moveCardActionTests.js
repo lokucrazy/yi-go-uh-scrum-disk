@@ -8,8 +8,30 @@ const testMoveCard = () => {
     assert.deepEqual(moveCard(expectedSlot, expectedNextSlot), expectedAction);
 };
 
+const testUndefinedSlotMoveCard = () => {
+    assert.deepEqual(moveCard(undefined, "nextSlot"), {});
+};
+
+const testUndefinedNextSlotMoveCard = () => {
+    assert.deepEqual(moveCard("slot", undefined), {});
+};
+
+const testBadSlotMoveCard = () => {
+    const badSlot = 5;
+    assert.deepEqual(moveCard(badSlot, "nextSlot"), {});
+};
+
+const testBadNextSlotMoveCard = () => {
+    const badNextSlot = 5;
+    assert.deepEqual(moveCard("slot", badNextSlot), {});
+};
+
 const moveCardActionTests = [
-    testMoveCard
+    testMoveCard,
+    testUndefinedSlotMoveCard,
+    testUndefinedNextSlotMoveCard,
+    testBadSlotMoveCard,
+    testBadNextSlotMoveCard
 ];
 
 export default moveCardActionTests;

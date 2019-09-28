@@ -1,9 +1,11 @@
 import ActionsTestSuite from "./actions";
 import ReducersTestSuite from "./reducers";
+import ModelsTestSuite from "./models";
 
 const suites = {
     ActionsTestSuite,
-    ReducersTestSuite
+    ReducersTestSuite,
+    ModelsTestSuite
 };
 
 let total = 0;
@@ -23,7 +25,9 @@ function runTests(tests) {
             pass++;
         } catch (err) {
             console.log(test.name + ": " + FAILED);
+            console.group();
             console.log("\x1b[31m" + err + "\x1b[0m");
+            console.groupEnd();
             errors.push(test.name);
             fail++;
         }
@@ -37,9 +41,11 @@ function logCompletion() {
     console.log("\x1b[32mFailed: " + fail + "\x1b[0m");
 
     if (errors.length !== 0) {
+        console.group();
         for (let err of errors) {
             console.log("\x1b[31m" + err + "\x1b[0m");
         }
+        console.groupEnd();
     }
 }
 
@@ -47,9 +53,11 @@ function testRunner() {
     console.log("\n\x1b[36mRunning Tests...\x1b[0m");
     for (let suite in suites) {
         console.log("\x1b[33m" + suite + "\x1b[0m");
+        console.group();
         if (suites.hasOwnProperty(suite)) {
             runTests(suites[suite]);
         }
+        console.groupEnd();
         console.log();
     }
 

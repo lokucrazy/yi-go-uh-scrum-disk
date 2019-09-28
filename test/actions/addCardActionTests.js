@@ -1,5 +1,4 @@
-import { addCardToDeck } from "../../src/actions";
-import { ADD_TO_DECK } from "../../src/actions";
+import { ADD_TO_DECK, addCardToDeck } from "../../src/actions";
 import { strict as assert } from "assert"
 import { Card } from "../../src/models";
 
@@ -10,8 +9,7 @@ const testAddCardToDeck = () => {
 };
 
 const testAddUndefinedCardToDeck = () => {
-    const badCard = undefined;
-    assert.deepEqual(addCardToDeck(badCard), {});
+    assert.deepEqual(addCardToDeck(undefined), {});
 };
 
 const testAddNonCardToDeck = () => {
