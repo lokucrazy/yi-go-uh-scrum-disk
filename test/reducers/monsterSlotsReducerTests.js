@@ -7,4 +7,4 @@ import { strict as assert } from "assert";
 
 const MonsterSlotsReducerTests = [];
 
-export default monsterSlotsReducerTests;
+export default MonsterSlotsReducerTests;

@@ -12,6 +12,7 @@ let total = 0;
 let pass = 0;
 let fail = 0;
 let errors = [];
+let exitCode = 0;
 
 let PASSED = "\x1b[32mPASSED\x1b[0m";
 let FAILED = "\x1b[31mFAILED\x1b[0m";
@@ -46,6 +47,7 @@ function logCompletion() {
             console.log("\x1b[31m" + err + "\x1b[0m");
         }
         console.groupEnd();
+        exitCode = 1;
     }
 }
 
@@ -65,3 +67,4 @@ function testRunner() {
 }
 
 testRunner();
+process.exit(exitCode);

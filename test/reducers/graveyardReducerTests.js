@@ -8,4 +8,4 @@ import { strict as assert } from "assert";
 
 const GraveyardReducerTests = [];
 
-export default graveyardReducerTests;
+export default GraveyardReducerTests;
