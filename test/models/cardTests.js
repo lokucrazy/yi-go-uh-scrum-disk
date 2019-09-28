@@ -5,8 +5,10 @@ import { strict as assert } from "assert";
 const testCardConstructor = () => {
     const expectedTitle = "title";
     const expectedDesc = "desc";
-    const expectedCard = new Card(expectedTitle, expectedDesc);
-    assert.deepEqual(new Card("title", "desc"), expectedCard);
+    const actualCard = new Card(expectedTitle, expectedDesc);
+
+    assert.equal(actualCard.title, expectedTitle);
+    assert.equal(actualCard.desc, expectedDesc);
 };
 
 const testUndefinedTitleCardConstructor = () => {
