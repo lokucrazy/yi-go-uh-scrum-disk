@@ -1,37 +1,30 @@
-import {MOVE_CARD, moveCard} from "../../src/actions";
-import {strict as assert} from "assert";
+import { MOVE_CARD, moveCard } from "../../src/actions";
+import { strict as assert } from "assert";
+import { describe, it } from "../utilities";
 
-const testMoveCard = () => {
-    const expectedSlot = "slot";
-    const expectedNextSlot = "nextSlot";
-    const expectedAction = { type: MOVE_CARD, slot: expectedSlot, nextSlot: expectedNextSlot };
-    assert.deepEqual(moveCard(expectedSlot, expectedNextSlot), expectedAction);
-};
+export default describe("move card action", () => {
+    it("creates a move card action", () => {
+        const expectedSlot = "slot";
+        const expectedNextSlot = "nextSlot";
+        const expectedAction = { type: MOVE_CARD, slot: expectedSlot, nextSlot: expectedNextSlot };
+        assert.deepEqual(moveCard(expectedSlot, expectedNextSlot), expectedAction);
+    });
 
-const testUndefinedSlotMoveCard = () => {
-    assert.deepEqual(moveCard(undefined, "nextSlot"), {});
-};
+    it("creates an empty object given an undefined slot", () => {
+        assert.deepEqual(moveCard(undefined, "nextSlot"), {});
+    });
 
-const testUndefinedNextSlotMoveCard = () => {
-    assert.deepEqual(moveCard("slot", undefined), {});
-};
+    it("creates an empty object given an undefined nextSlot", () => {
+        assert.deepEqual(moveCard("slot", undefined), {});
+    });
 
-const testBadSlotMoveCard = () => {
-    const badSlot = 5;
-    assert.deepEqual(moveCard(badSlot, "nextSlot"), {});
-};
+    it("creates an empty object given an bad slot", () => {
+        const badSlot = 5;
+        assert.deepEqual(moveCard(badSlot, "nextSlot"), {});
+    });
 
-const testBadNextSlotMoveCard = () => {
-    const badNextSlot = 5;
-    assert.deepEqual(moveCard("slot", badNextSlot), {});
-};
-
-const moveCardActionTests = [
-    testMoveCard,
-    testUndefinedSlotMoveCard,
-    testUndefinedNextSlotMoveCard,
-    testBadSlotMoveCard,
-    testBadNextSlotMoveCard
-];
-
-export default moveCardActionTests;
+    it("creates an empty object given an bad nextSlot", () => {
+        const badNextSlot = 5;
+        assert.deepEqual(moveCard("slot", badNextSlot), {});
+    });
+});
