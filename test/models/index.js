@@ -1,6 +1,8 @@
 import cardTests from "./cardTests";
 import slotTests from "./slotTests";
+import { describe } from "../utilities";
 
-const ModelsTestSuite = [].concat(cardTests, slotTests);
-
-export default ModelsTestSuite;
+export default describe("Models Test Suite", () => {
+    cardTests();
+    slotTests();
+});

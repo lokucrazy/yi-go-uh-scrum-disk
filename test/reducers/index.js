@@ -1,7 +1,10 @@
 import DeckReducerTests from "./deckReducerTests";
 import GraveyardReducerTests from "./graveyardReducerTests";
 import MonsterSlotsReducerTests from "./monsterSlotsReducerTests";
+import { describe } from "../utilities";
 
-const ReducersTestSuite = [].concat(DeckReducerTests, GraveyardReducerTests, MonsterSlotsReducerTests);
-
-export default ReducersTestSuite;
+export default describe("Reducers Test Suite", () => {
+    DeckReducerTests();
+    GraveyardReducerTests();
+    MonsterSlotsReducerTests();
+});

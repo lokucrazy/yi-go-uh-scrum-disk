@@ -16,7 +16,7 @@ let describe = (description, testFunc) => {
             testFunc();
             console.groupEnd();
         }
-    }
+    };
 };
 
 let it = (description, testFunc) => {
@@ -38,7 +38,15 @@ let it = (description, testFunc) => {
         console.groupEnd();
     }
 };
-let test = it;
+let test = (description, testFunc) => {
+    description = "test " + description;
+    if (testFunc instanceof Function) {
+        console.group();
+        console.log("\x1b[33m" + description + "\x1b[0m");
+        testFunc();
+        console.groupEnd();
+    }
+};
 
 function logCompletion() {
     console.log("\x1b[32mTests Completed:\x1b[0m");
