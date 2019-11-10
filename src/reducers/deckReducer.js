@@ -12,11 +12,11 @@ function addCardToDeck(state, action) {
 	}
 	let deck = state.deck.slice(0)
 	deck.push(action.card)
-	deck = randomizeDeck(deck)
+	deck = randomize(deck)
 	return Object.assign({}, state, { deck })
 }
 
-function randomizeDeck(deck) {
+function randomize(deck) {
 	if (!deck || !(deck instanceof Array) || deck.length === 1) {
 		return deck
 	}
