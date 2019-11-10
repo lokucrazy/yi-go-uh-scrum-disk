@@ -44,7 +44,7 @@ function draw2Cards(state, action) {
  * Moves the top card of the deck to the next available monster slot
  */
 function moveCards(state) {
-	if (!state.deck || !state.monsterSlots) {
+	if (!state.deck || state.deck === [] || !state.monsterSlots) {
 		return state
 	}
 
