@@ -28,6 +28,26 @@ export default describe("deck reducer tests", () => {
 			assert.deepEqual(actualState.deck, expectedDeck)
 		})
 
+		it("returns a deck with randomized cards", () => {
+			const card1 = new Card("title1", "desc1")
+			const card2 = new Card("title2", "desc2")
+			const card3 = new Card("title3", "desc1")
+			const action1 = { type: ADD_TO_DECK, card: card1 }
+			const action2 = { type: ADD_TO_DECK, card: card2 }
+			const action3 = { type: ADD_TO_DECK, card: card3 }
+			const expectedDeck = [card1, card2, card3]
+			const actualState = deckReducer(
+				deckReducer(
+					deckReducer(initialState, action1),
+					action2
+				),
+				action3
+			)
+
+			assert.notDeepEqual(actualState, initialState)
+			assert.notDeepEqual(actualState.deck, expectedDeck)
+		})
+
 		it("returns the initial state when given an action with a bad card", () => {
 			const action = { type: ADD_TO_DECK, card: null }
 			assert.deepEqual(deckReducer(initialState, action), initialState)
