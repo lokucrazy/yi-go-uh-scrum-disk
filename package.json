@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "webpack --config webpack-test.config.js && node ./dist/testBundle.js",
     "build": "webpack",
     "start": "webpack-dev-server"
   },
@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/lokucrazy/yi-go-uh-scrum-disk#readme",
   "dependencies": {
+    "ajv": "^6.10.2",
+    "reduce-reducers": "^1.0.4",
     "redux": "^4.0.4",
     "serve": "^11.1.0"
   },
@@ -29,10 +31,11 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "css-loader": "^3.1.0",
+    "eslint": "^6.6.0",
     "html-webpack-plugin": "^3.2.0",
-    "style-loader": "^0.23.1",
     "webpack": "^4.38.0",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2"
+    "webpack-dev-server": "^3.7.2",
+    "webpack-node-externals": "^1.7.2"
   }
 }

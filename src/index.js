@@ -1,22 +1,21 @@
-import { addCard, removeCard } from './actions/index.js';
-import { createStore } from 'redux';
-import scrumDisk from './reducers/index.js';
+import { Card } from "./models"
+import { createStore } from "redux"
+import scrumDisk from "./reducers"
 
-const store = createStore(scrumDisk);
+import { addCardToDeck, draw2Cards, drawCard, sendCardToGraveyard } from "./actions"
 
-const unsubscribe = store.subscribe(() => console.log(store.getState()));
+const store = createStore(scrumDisk)
+const unsubscribe = store.subscribe(() => console.log(store.getState()))
+const card1 = new Card("New Card Title 1", "New Card Desc 1")
+const card2 = new Card("New Card Title 2", "New Card Desc 2")
 
-store.dispatch(addCard("cards", { 
-    title: "New Card Title 1", 
-    desc: "New Card Desc 1"
-}));
-store.dispatch(addCard("monsterSlot1", {
-    title: "New Card Title 2",
-    desc: "New Card Desc 2"
-}));
-store.dispatch(removeCard("monsterSlot1", {
-    title: "New Card Title 2",
-    desc: "New Card Desc 2"
-}));
+store.dispatch(addCardToDeck(card1))
+store.dispatch(addCardToDeck(card2))
+store.dispatch(drawCard())
+store.dispatch(drawCard())
+store.dispatch(sendCardToGraveyard("monster1", card1))
+store.dispatch(addCardToDeck(card1))
+store.dispatch(addCardToDeck(card2))
+store.dispatch(draw2Cards())
 
-unsubscribe();
+unsubscribe()
