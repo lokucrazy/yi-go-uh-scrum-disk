@@ -12,8 +12,26 @@ function addCardToDeck(state, action) {
 	}
 	let deck = state.deck.slice(0)
 	deck.push(action.card)
-
+	deck = randomize(deck)
 	return Object.assign({}, state, { deck })
+}
+
+function randomize(deck) {
+	if (!deck || !(deck instanceof Array) || deck.length === 1) {
+		return deck
+	}
+	const length = deck.length
+	for (let i = 0; i < length; i++ ) {
+		const rand = Math.floor(Math.random() * Math.floor(length))
+		if (rand === i) {
+			i--
+			continue
+		}
+		const temp = deck[rand]
+		deck[rand] = deck[i]
+		deck[i] = temp
+	}
+	return deck
 }
 
 /*
