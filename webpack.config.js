@@ -1,6 +1,6 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require("path")
+const webpack = require("webpack")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 /*
  * SplitChunksPlugin is enabled by default and replaced
@@ -16,14 +16,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
  */
 
 module.exports = {
-	mode: 'development',
+	mode: "development",
 	entry: [ 
-		'./src/index.js',
+		"./src/index.js",
 	],
 
 	output: {
-		filename: 'bundle.js',
-		path: path.resolve(__dirname, 'dist')
+		filename: "bundle.js",
+		path: path.resolve(__dirname, "dist")
 	},
 
 	plugins: [
@@ -37,15 +37,15 @@ module.exports = {
 		rules: [
 			{
 				test: /.(js|jsx)$/,
-				include: [path.resolve(__dirname, 'src')],
-				loader: 'babel-loader',
+				include: [path.resolve(__dirname, "src")],
+				loader: "babel-loader",
 
 				options: {
-					plugins: ['syntax-dynamic-import'],
+					plugins: ["syntax-dynamic-import"],
 
 					presets: [
 						[
-							'@babel/preset-env',
+							"@babel/preset-env",
 							{
 								modules: false
 							}
@@ -65,7 +65,7 @@ module.exports = {
 				}
 			},
 
-			chunks: 'async',
+			chunks: "async",
 			minChunks: 1,
 			minSize: 30000,
 			name: true
@@ -73,7 +73,7 @@ module.exports = {
 	},
 
 	devServer: {
-		contentBase: path.resolve(__dirname, 'dist'),
+		contentBase: path.resolve(__dirname, "dist"),
 		open: true
 	}
-};
+}

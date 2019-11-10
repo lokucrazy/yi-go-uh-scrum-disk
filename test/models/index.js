@@ -1,8 +1,8 @@
-import cardTests from "./cardTests";
-import slotTests from "./slotTests";
-import { describe } from "../utilities";
+import cardTests from "./cardTests"
+import { describe } from "../utilities"
+import slotTests from "./slotTests"
 
 export default describe("Models Test Suite", () => {
-    cardTests();
-    slotTests();
-});
+	cardTests()
+	slotTests()
+})
