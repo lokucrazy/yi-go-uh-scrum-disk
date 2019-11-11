@@ -1,0 +1,9 @@
+.disk {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: stretch;
+	max-width: 75rem;
+	height: 25rem;
+	margin-bottom: .5em
+}

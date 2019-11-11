@@ -68,6 +68,7 @@ function moveCards(state) {
 
 	let deck = state.deck.slice(0)
 	let monsterSlots = copySlots(state.monsterSlots)
+	if (deck.length === 0) return state;
 	for (let slot in monsterSlots) {
 		if (monsterSlots[slot] && monsterSlots[slot].card === null) {
 			monsterSlots[slot].card = deck.pop()

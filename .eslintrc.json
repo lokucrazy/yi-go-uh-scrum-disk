@@ -4,14 +4,20 @@
         "es6": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+	    "eslint:recommended",
+	    "plugin:import/react"
+    ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
     "parserOptions": {
         "ecmaVersion": 2018,
-        "sourceType": "module"
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
     },
     "rules": {
         "indent": [
@@ -35,5 +41,12 @@
             "ignoreMemberSort": false,
             "memberSyntaxSortOrder": ["single", "multiple", "all", "none"]
         }]
-    }
+    },
+    "settings": {
+        "import/resolver": {
+	    "node": {
+                "extensions": [".js", ".jsx"]
+	    }
+	}
+    }	
 }

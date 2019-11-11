@@ -29,20 +29,23 @@ module.exports = {
 	plugins: [
 		new webpack.ProgressPlugin(),
 		new HtmlWebpackPlugin({
-			template: "./src/index.html"
+			template: "./src/index.html",
+			inject: "head"
 		})
 	],
 
 	module: {
 		rules: [
 			{
-				test: /.(js|jsx)$/,
-				include: [path.resolve(__dirname, "src")],
+				test: /.jsx$/,
+				exclude: /(node_modules|bower_components)/,
+				include: [path.resolve(__dirname, "src/")],
 				loader: "babel-loader",
-
 				options: {
-					plugins: ["syntax-dynamic-import"],
-
+					plugins: ["syntax-dynamic-import",
+						"@babel/plugin-transform-runtime",
+						"@babel/plugin-transform-react-jsx"
+					],
 					presets: [
 						[
 							"@babel/preset-env",
@@ -53,6 +56,10 @@ module.exports = {
 					]
 				}
 			},
+			{
+				test: /.css$/,
+				use:["style-loader", "css-loader"]
+			}
 		]
 	},
 

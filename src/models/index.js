@@ -9,10 +9,6 @@ export class Card {
 		this.title = title
 		this.desc = desc
 	}
-
-	render() {
-		return "<div class='card'>title:" + this.title + "<br>" + "desc:" + this.desc + "</div>"
-	}
 }
 
 export class Slot {
@@ -25,14 +21,5 @@ export class Slot {
 		}
 		this.card = card
 		this.slotId = slotId
-	}
-
-	render() {
-		console.log(this.slotId, (this.card instanceof Card))
-		return (
-			"<div class='slot' id=" + this.slotId + ">"
-                + this.card !== null ? this.card.render() : "" +
-            "</div>"
-		)
 	}
 }

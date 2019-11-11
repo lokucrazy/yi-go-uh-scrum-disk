@@ -1,0 +1,15 @@
+.slot {
+	width: 20%;
+	height: 100%;
+	flex-grow: 1;
+	flex-shrink: 0;
+	flex-basis: auto;
+	border: .1em solid black;
+	margin: .2em;
+}
+
+.slot h1 {
+	text-align: center;
+	border-bottom: .1em solid orange;
+	margin-bottom: .5em;
+}
