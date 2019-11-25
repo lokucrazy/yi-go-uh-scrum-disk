@@ -1,8 +1,7 @@
-/** @jsx h() */
-import h from "../../utilities/vdom"
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { h, VNode } from '../../utilities/vdom'
 
-const AddCardModal = () => {
-	
+const AddCardModal = (): VNode => {
 	return (
 		<div class="modal" id="add-card-modal" >
 			<div class="header" id="add-card-header" >
@@ -19,3 +18,5 @@ const AddCardModal = () => {
 		</div>
 	)
 }
+
+export default AddCardModal

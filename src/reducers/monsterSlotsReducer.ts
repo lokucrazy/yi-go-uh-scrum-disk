@@ -1,11 +1,8 @@
-import copySlots from "../utilities/copySlots"
-import initialState from "./initialState"
-import { MOVE_CARD } from "../actions"
+import copySlots from '../utilities/copySlots'
+import { initialState, State } from './initialState'
+import { MOVE_CARD, MoveCardAction } from '../actions'
 
-/*
- * Moves card from one monster slot to another
- */
-function moveCardBetweenSlots(state, action) {
+function moveCardBetweenSlots(state: State, action: MoveCardAction): State {
 	if (action.type !== MOVE_CARD
         || !action.slot
         || !action.nextSlot
@@ -26,7 +23,7 @@ function moveCardBetweenSlots(state, action) {
 /*
  * The monster slots reducer functions
  */
-export default function monsterSlotsReducer(state = initialState, action) {
+export default function monsterSlotsReducer(state: State = initialState, action: MoveCardAction): State {
 	switch(action.type) {
 	case MOVE_CARD:
 		return moveCardBetweenSlots(state, action)

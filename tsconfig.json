@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"module": "ES6",
+		"moduleResolution": "Node",
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"outDir": "./dist/",
+		"target": "ES5",
+		"jsx": "react",
+		"jsxFactory": "h",
+		"sourceMap": true,
+	},
+	"include": [
+		"src/**/*",
+		"test/**/*",
+	],
+	"exclude": [
+		"node_modules",
+	]
+}

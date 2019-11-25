@@ -1,6 +1,6 @@
-const path = require("path")
-const webpack = require("webpack")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 /*
  * SplitChunksPlugin is enabled by default and replaced
@@ -16,51 +16,42 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
  */
 
 module.exports = {
-	mode: "development",
+	mode: 'development',
 	entry: [ 
-		"./src/index.js",
+		'./src/index.ts',
 	],
 
+	devtool: 'inline-source-map',
+
 	output: {
-		filename: "bundle.js",
-		path: path.resolve(__dirname, "dist")
+		filename: 'bundle.js',
+		path: path.resolve(__dirname, 'dist')
 	},
 
 	plugins: [
 		new webpack.ProgressPlugin(),
 		new HtmlWebpackPlugin({
-			template: "./src/index.html",
-			inject: "head"
+			template: './src/index.html',
+			inject: 'head'
 		})
 	],
 
 	module: {
 		rules: [
 			{
-				test: /.jsx$/,
-				exclude: /(node_modules|bower_components)/,
-				include: [path.resolve(__dirname, "src/")],
-				loader: "babel-loader",
-				options: {
-					plugins: ["syntax-dynamic-import",
-						"@babel/plugin-transform-runtime",
-						"@babel/plugin-transform-react-jsx"
-					],
-					presets: [
-						[
-							"@babel/preset-env",
-							{
-								modules: false
-							}
-						]
-					]
-				}
+				test: /\.tsx?$/,
+				use: 'ts-loader',
+				exclude: /node_modules/,
 			},
 			{
 				test: /.css$/,
-				use:["style-loader", "css-loader"]
+				use:['style-loader', 'css-loader']
 			}
 		]
+	},
+
+	resolve: {
+		extensions: [ '.tsx', '.ts', '.js' ],
 	},
 
 	optimization: {
@@ -72,7 +63,7 @@ module.exports = {
 				}
 			},
 
-			chunks: "async",
+			chunks: 'async',
 			minChunks: 1,
 			minSize: 30000,
 			name: true
@@ -80,7 +71,7 @@ module.exports = {
 	},
 
 	devServer: {
-		contentBase: path.resolve(__dirname, "dist"),
+		contentBase: path.resolve(__dirname, 'dist'),
 		open: true
 	}
 }

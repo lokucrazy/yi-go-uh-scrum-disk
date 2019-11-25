@@ -1,2 +1,6 @@
 dist
 *.html
+
+# webpack configs
+webpack-test.config.js
+webpack.config.js
