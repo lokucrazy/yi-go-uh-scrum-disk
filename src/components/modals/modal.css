@@ -11,14 +11,39 @@
 	background-color: rgba(0,0,0,0.4);
 }
 
-.modal .header {
+.modal .content {
+	position: fixed;
+	margin-left: 4em;
+  bottom: 0;
+  background-color: #fefefe;
+  width: 50em;
+  animation-name: animatebutton;
+  animation-duration: 0.4s
+}
 
+.modal .header {
+	padding: 2px 16px;
+  background-color: orange;
+  color: white;
 }
 
 .modal .body {
-
+	padding-left: .5em;
+	padding-bottom: .5em;
 }
 
 .modal .footer {
+	padding: 2px 16px;
+  background-color: orange;
+  color: white;
+}
 
+.modal .body textarea {
+	width: 80%
+	
+}
+
+@keyframes animatebutton {
+  from {bottom: -300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
 }
